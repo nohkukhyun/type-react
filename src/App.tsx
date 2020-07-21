@@ -1,6 +1,6 @@
-import React from "react"
-import DesktopRoutes from "./routes/DesktopRoutes"
-import { createGlobalStyle } from "styled-components"
+import React from "react";
+import DesktopRoutes from "./routes/DesktopRoutes";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
       }
     }
   }
-`
+`;
 
 const App: React.FC = () => {
   return (
@@ -30,7 +30,7 @@ const App: React.FC = () => {
       <GlobalStyle />
       <DesktopRoutes />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
