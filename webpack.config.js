@@ -1,6 +1,6 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require("path")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
   //웹팩이 빌드할 파일
@@ -21,6 +21,7 @@ module.exports = {
     hot: true,
   },
 
+  //사용하는 코드의 로더를 설정
   module: {
     rules: [
       {
@@ -33,8 +34,13 @@ module.exports = {
         loader: "html-loader",
       },
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin, "style-loader", "css-loader"],
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          MiniCssExtractPlugin,
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -60,4 +66,4 @@ module.exports = {
       chunkFilename: "[id].css",
     }),
   ],
-};
+}
