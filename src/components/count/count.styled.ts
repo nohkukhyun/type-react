@@ -22,5 +22,15 @@ export const CountWrapBody = styled.div`
 `
 
 export const Title = styled.h3`
-  margin: 0 auto;
+  text-align: 0 auto;
+`
+
+export const Number = styled.h2`
+  text-align: center;
+`
+
+export const Buttons = styled.button`
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  padding: 10px 20px;
 `

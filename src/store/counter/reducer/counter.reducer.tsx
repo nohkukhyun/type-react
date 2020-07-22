@@ -3,11 +3,13 @@ import * as count from '../action/counter.action'
 interface countState {
   id: number
   num: number
+  message: string
 }
 
 const initialState: countState = {
   id: 0,
   num: 0,
+  message: '',
 }
 
 type counterActions =
@@ -22,7 +24,8 @@ function counter(state = initialState, action: counterActions) {
       return {
         ...state,
         id: id++,
-        num: action.payload + 1,
+        num: action.payload.num + 1,
+        message: action.payload.message,
       }
     }
 
@@ -30,7 +33,8 @@ function counter(state = initialState, action: counterActions) {
       return {
         ...state,
         id: id++,
-        num: action.payload - 1,
+        num: action.payload.num - 1,
+        message: action.payload.message,
       }
     }
 
