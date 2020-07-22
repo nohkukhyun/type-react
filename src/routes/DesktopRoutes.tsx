@@ -1,11 +1,13 @@
-import React from "react"
-import { Switch, Route } from "react-router-dom"
-import todos from "../pages/todos"
+import React from 'react'
+import { Switch, Route } from 'react-router-dom'
+import todos from '../pages/todos'
+import count from '../pages/count'
 
 const DesktopRoutes: React.FC = () => {
   return (
     <Switch>
-      <Route exact={true} path="/" component={todos} />
+      <Route path="/count" exact component={count} />
+      <Route path="/todo" component={todos} />
     </Switch>
   )
 }

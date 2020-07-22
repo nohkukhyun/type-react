@@ -1,9 +1,9 @@
 export interface Todo {
-  index: number;
-  text: string;
-  completed: boolean;
+  id: number
+  text: string
+  completed: boolean
 }
 
 export interface TodoState {
-  todos: Todo[];
+  todos: Todo[]
 }
