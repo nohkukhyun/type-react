@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   //웹팩이 빌드할 파일
@@ -11,12 +12,17 @@ module.exports = {
     path: path.resolve(__dirname + '/build'),
     filename: 'bundle.js',
   },
-  //개발용인지 실제서비스용인지
+  //웹팩 빌드 옵션
+  /**
+   * options: "development", "production"
+   * development는 빠르게 빌드하기 위해 / Production 빌드시 최적화
+   */
   mode: 'development',
 
   //빠른 실시간 리로드 기능을 갖춘 개발서버
   devServer: {
-    contentBase: './dist',
+    //devServer에 제공되어야할 컨텐츠 파일(번들 결과 파일)
+    contentBase: __dirname + '/build',
     port: 8080,
     hot: true,
     historyApiFallback: true,
@@ -33,6 +39,9 @@ module.exports = {
       {
         test: /\.html$./,
         loader: 'html-loader',
+        options: {
+          minimize: true,
+        },
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -57,14 +66,18 @@ module.exports = {
   },
 
   plugins: [
+    //html파일을 해석
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: 'index.html',
       hash: true,
     }),
+    //css파일 최소화
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    //build시 사용하지 않는 웹팩 제거
+    new CleanWebpackPlugin(),
   ],
 }

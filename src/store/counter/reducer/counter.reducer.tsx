@@ -1,24 +1,24 @@
 import * as count from '../action/counter.action'
 
-interface countState {
+interface CountState {
   id: number
   num: number
   message: string
 }
 
-const initialState: countState = {
+const initialState: CountState = {
   id: 0,
   num: 0,
   message: '',
 }
 
-type counterActions =
+type CounterActions =
   | ReturnType<typeof count.increaseCount>
   | ReturnType<typeof count.decreaseCount>
 
 let id = 0
 
-function counter(state = initialState, action: counterActions) {
+function counter(state = initialState, action: CounterActions) {
   switch (action.type) {
     case count.INCREASE_COUNT: {
       return {

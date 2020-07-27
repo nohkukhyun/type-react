@@ -5,9 +5,10 @@ type CountProps = {
   handleIncrease: (num: number, message: string) => void
   handleDecrease: (num: number, message: string) => void
   num: number
+  message: string
 }
 
-function Count({ handleIncrease, handleDecrease, num }: CountProps) {
+function Count({ handleIncrease, handleDecrease, num, message }: CountProps) {
   return (
     <S.CountWrap>
       <S.CountWrapBody>
@@ -17,6 +18,7 @@ function Count({ handleIncrease, handleDecrease, num }: CountProps) {
         <S.Buttons onClick={() => handleDecrease(num, 'num down!')}>
           -
         </S.Buttons>
+        <p>{message}</p>
       </S.CountWrapBody>
     </S.CountWrap>
   )

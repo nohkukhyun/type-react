@@ -6,7 +6,7 @@ import { RootState } from '../../store/rootReducer'
 
 function CountContainer() {
   const dispatch = useDispatch()
-  const { num } = useSelector((state: RootState) => state.counter)
+  const { num, message } = useSelector((state: RootState) => state.counter)
 
   const handleIncrease = (n: number, msg: string) => {
     dispatch(count.increaseCount(n, msg))
@@ -21,6 +21,7 @@ function CountContainer() {
       handleIncrease={handleIncrease}
       handleDecrease={handleDecrease}
       num={num}
+      message={message}
     />
   )
 }
